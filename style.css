@@ -1,0 +1,412 @@
+:root {
+    --bg-color: #1C161D;
+    
+    /* Figma Palette */
+    --primary: #785C7C;
+    --secondary: #AC94B0;
+    --accent: #71385C;
+    
+    /* Text and accents */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --glass-bg: rgba(120, 92, 124, 0.1);
+    --glass-border: rgba(172, 148, 176, 0.2);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Ambient glow bubbles in background */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    opacity: 0.15;
+}
+
+body::before {
+    top: -10vw;
+    left: -10vw;
+    background: var(--primary);
+}
+
+body::after {
+    bottom: -10vw;
+    right: -10vw;
+    background: var(--accent);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Layout */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: 1.5rem;
+}
+
+.center-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.logo-section h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-section .subtitle {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.streak-section {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: rgba(0,0,0,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+}
+
+.streak-icon {
+    margin-right: 5px;
+}
+
+/* Typography & General */
+h2, h3 {
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    width: 100%;
+    text-align: left;
+}
+
+/* Input Fields */
+.glass-input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.glass-input::placeholder {
+    color: rgba(172, 148, 176, 0.5);
+}
+
+.glass-input:focus {
+    border-color: var(--secondary);
+}
+
+.glass-input.small {
+    width: 48%;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.primary-btn {
+    background: var(--gradient-primary);
+    box-shadow: 0 4px 15px rgba(113, 56, 92, 0.4);
+}
+
+.primary-btn:hover {
+    box-shadow: 0 6px 20px rgba(113, 56, 92, 0.6);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.secondary-btn:hover {
+    background: rgba(120, 92, 124, 0.2);
+}
+
+.accent-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.accent-btn:hover {
+    background: rgba(113, 56, 92, 0.2);
+}
+
+/* Timer Section */
+.timer-display {
+    font-size: 6rem;
+    font-weight: 300;
+    text-shadow: 0 0 20px rgba(172, 148, 176, 0.3);
+    margin: 1rem 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-label {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.session-settings {
+    width: 100%;
+}
+
+.time-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Thermostat Section */
+.view-toggles {
+    display: flex;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 0.3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.toggle-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.thermostat-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+#current-hours {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.divider {
+    color: var(--text-secondary);
+    margin: -5px 0;
+}
+
+#goal-hours {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.goal-settings {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* History Section */
+.history-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-right: 0.5rem;
+}
+
+.history-list::-webkit-scrollbar {
+    width: 6px;
+}
+.history-list::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+.history-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.history-item {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--glass-border);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.history-item:hover {
+    background: rgba(120, 92, 124, 0.15);
+}
+
+.history-info strong {
+    display: block;
+    color: var(--secondary);
+    margin-bottom: 0.2rem;
+}
+
+.history-info span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.history-duration {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.manual-entry {
+    background: rgba(0,0,0,0.15);
+    padding: 1rem;
+    border-radius: 16px;
+}
+
+.manual-entry h3 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.entry-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.entry-row input {
+    margin-bottom: 0;
+}
+.entry-row .small {
+    width: 80px;
+}
+.entry-row .btn {
+    padding: 0 1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+    .history-section {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    .timer-display {
+        font-size: 5rem;
+    }
+}

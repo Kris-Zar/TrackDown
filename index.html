@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Down - Focus Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header & Stats -->
+        <header class="header glass-panel">
+            <div class="logo-section">
+                <h1>Track Down</h1>
+                <p class="subtitle">Focus & Achieve</p>
+            </div>
+            <div class="streak-section">
+                <span class="streak-icon">🔥</span>
+                <span id="streak-count">0</span> Days
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <!-- Pomodoro Timer Section -->
+            <section class="timer-section glass-panel center-col">
+                <div class="timer-display" id="timer-display">25:00</div>
+                <div class="timer-label" id="current-label">Focus Session</div>
+
+                <div class="timer-controls">
+                    <button id="btn-start" class="btn primary-btn">Start</button>
+                    <button id="btn-pause" class="btn secondary-btn">Pause</button>
+                    <button id="btn-stop" class="btn accent-btn">Stop</button>
+                </div>
+
+                <div class="session-settings">
+                    <input type="text" id="session-subject" placeholder="Subject / Label" class="glass-input">
+                    <div class="time-inputs">
+                        <input type="number" id="work-duration" placeholder="Work (min)" value="25" class="glass-input small" min="1">
+                        <input type="number" id="break-duration" placeholder="Break (min)" value="5" class="glass-input small" min="1">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Thermostat Section -->
+            <section class="thermostat-section glass-panel center-col">
+                <h2>Progress Meter</h2>
+                <div class="view-toggles">
+                    <button class="toggle-btn active" data-view="today">Today</button>
+                    <button class="toggle-btn" data-view="week">Week</button>
+                    <button class="toggle-btn" data-view="month">Month</button>
+                </div>
+                
+                <div class="canvas-container">
+                    <canvas id="thermostat-canvas" width="200" height="300"></canvas>
+                    <div class="thermostat-text">
+                        <span id="current-hours">0h</span>
+                        <span class="divider">/</span>
+                        <span id="goal-hours">2h</span>
+                    </div>
+                </div>
+
+                <div class="goal-settings">
+                    <input type="number" id="daily-goal-input" placeholder="Daily Goal (hrs)" value="2" class="glass-input small">
+                </div>
+            </section>
+
+            <!-- History & Stats Section -->
+            <section class="history-section glass-panel">
+                <h2>Recent Sessions</h2>
+                <div class="history-list" id="history-list">
+                    <!-- History items will be populated here -->
+                </div>
+                
+                <div class="manual-entry">
+                    <h3>Add Manual Session</h3>
+                    <div class="entry-row">
+                        <input type="text" id="manual-subject" placeholder="Subject" class="glass-input">
+                        <input type="number" id="manual-duration" placeholder="Minutes" class="glass-input small">
+                        <button id="btn-add-manual" class="btn secondary-btn">Add</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Audio element for notification -->
+    <audio id="notification-sound" src="chime.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
