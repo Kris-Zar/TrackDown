@@ -1,19 +1,19 @@
 :root {
-    --bg-color: #1C161D;
+    --bg-color: #1A1614;
     
-    /* Figma Palette */
-    --primary: #785C7C;
-    --secondary: #AC94B0;
-    --accent: #71385C;
+    /* New Palette */
+    --primary: #D6BDA4;
+    --secondary: #A08C7C;
+    --accent: #D87D4A;
     
     /* Text and accents */
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --glass-bg: rgba(120, 92, 124, 0.1);
-    --glass-border: rgba(172, 148, 176, 0.2);
+    --text-primary: #F2EAE4;
+    --text-secondary: rgba(242, 234, 228, 0.6);
+    --glass-bg: rgba(214, 189, 164, 0.05);
+    --glass-border: rgba(214, 189, 164, 0.15);
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
 * {
@@ -180,11 +180,12 @@ h2, h3 {
 
 .primary-btn {
     background: var(--gradient-primary);
-    box-shadow: 0 4px 15px rgba(113, 56, 92, 0.4);
+    color: var(--bg-color);
+    box-shadow: 0 4px 15px rgba(214, 189, 164, 0.2);
 }
 
 .primary-btn:hover {
-    box-shadow: 0 6px 20px rgba(113, 56, 92, 0.6);
+    box-shadow: 0 6px 20px rgba(214, 189, 164, 0.4);
     transform: translateY(-1px);
 }
 
@@ -195,7 +196,7 @@ h2, h3 {
 }
 
 .secondary-btn:hover {
-    background: rgba(120, 92, 124, 0.2);
+    background: rgba(214, 189, 164, 0.15);
 }
 
 .accent-btn {
@@ -205,7 +206,7 @@ h2, h3 {
 }
 
 .accent-btn:hover {
-    background: rgba(113, 56, 92, 0.2);
+    background: rgba(216, 125, 74, 0.15);
 }
 
 /* Timer Section */
@@ -347,7 +348,7 @@ h2, h3 {
 }
 
 .history-item:hover {
-    background: rgba(120, 92, 124, 0.15);
+    background: rgba(214, 189, 164, 0.15);
 }
 
 .history-info strong {

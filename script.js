@@ -282,7 +282,7 @@ function renderThermostat() {
     // Draw Track (background circle)
     ctx.beginPath();
     ctx.arc(cx, cy, radius, Math.PI * 0.75, Math.PI * 2.25);
-    ctx.strokeStyle = 'rgba(172, 148, 176, 0.2)'; // secondary with opacity
+    ctx.strokeStyle = 'rgba(160, 140, 124, 0.2)'; // secondary with opacity
     ctx.lineWidth = 15;
     ctx.lineCap = 'round';
     ctx.stroke();
@@ -296,8 +296,8 @@ function renderThermostat() {
         
         // Gradient for fill
         const grad = ctx.createLinearGradient(0, cy - radius, cw, cy + radius);
-        grad.addColorStop(0, '#785C7C'); // primary
-        grad.addColorStop(1, '#71385C'); // accent
+        grad.addColorStop(0, '#D6BDA4'); // primary
+        grad.addColorStop(1, '#D87D4A'); // accent
         
         ctx.strokeStyle = grad;
         ctx.lineWidth = 15;
@@ -309,7 +309,7 @@ function renderThermostat() {
 // --- CELEBRATION EFFECT (Custom Particles) ---
 function celebrate() {
     const numParticles = 30;
-    const colors = ['#785C7C', '#AC94B0', '#71385C', '#ffffff'];
+    const colors = ['#D6BDA4', '#A08C7C', '#D87D4A', '#F2EAE4'];
     
     for (let i = 0; i < numParticles; i++) {
         createParticle(colors[Math.floor(Math.random() * colors.length)]);
